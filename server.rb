@@ -7,6 +7,9 @@ require 'uri'
 # Connect to redis
 redis = Redis.new
 
+# Update cookie settings (1 year storage)
+set :cookie_options, :expires => Time.now + (60 * 60 * 24 * 365 * 1)
+
 # Handle middleware
 before do
   # Read user id
@@ -14,9 +17,6 @@ before do
 
   # Check if user id exists
   if user_id.nil?
-    # Update cookie settings (1 year storage)
-    set :cookie_options, :expires => Time.now + (60 * 60 * 24 * 365 * 1)
-
     # Generate and store new user id
     cookies[:user_id] = SecureRandom.hex 16
   end
