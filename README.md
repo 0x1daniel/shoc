@@ -1,10 +1,10 @@
-# shoc
+# shoc :confused:
 
 minimalistic shortener
 
 ## About
 
-Simply written in ruby and using redis, to get things done.
+Simply written in ruby and using redis, to get things done. [Kurz](https://github.com/oltdaniel/kurz) is the compley version of this.
 
 ## Setup
 
@@ -24,7 +24,7 @@ Now visit [localhost:8080](http://localhost:8080) to see something.
 
 _Just do what you'd like to_
 
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/oltdaniel/clap/blob/master/LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/oltdaniel/shoc/blob/master/LICENSE)
 
 #### Credit
 
