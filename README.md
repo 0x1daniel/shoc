@@ -4,7 +4,7 @@ minimalistic shortener
 
 ## About
 
-Simply written in ruby and using redis, to get things done. [Kurz](https://github.com/oltdaniel/kurz) is the compley version of this.
+Simply written in ruby and using redis, to get things done. [Kurz](https://github.com/oltdaniel/kurz) is the complex version of this.
 
 ## Setup
 
@@ -19,6 +19,16 @@ $ ruby server.rb -p 8080
 ```
 
 Now visit [localhost:8080](http://localhost:8080) to see something.
+
+## Urls
+
+| url | description |
+|-|-|
+| `/` | landing page |
+| `/urls` | view all urls created by the user |
+| `/:url` | redirect to shorten url |
+| `/:url/view` | view details about shorten url |
+| `/recover` | recover user account by user id _(found at `/urls`)_ |
 
 ## License
 
