@@ -1,0 +1,19 @@
+<p>
+  <b>user_id</b>: <%= user_id %><br><br>
+  store this id, to recover or load your urls on different devices<br><br>
+  <b>note:</b> your account will be deleted after 1 year
+</p>
+
+<br><br>
+
+<a href="/">&lt; home</a>
+
+<hr>
+
+<br><br>
+
+<div>
+<% urls.each do |u| %>
+  <a href="/<%= u %>/view">l.oltdaniel.tk/<%= u %></a><br>
+<% end %>
+</div>
