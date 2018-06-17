@@ -30,6 +30,25 @@ Now visit [localhost:8080](http://localhost:8080) to see something.
 | `/:url/view` | view details about shorten url |
 | `/recover` | recover user account by user id _(found at `/urls`)_ |
 
+## Config
+
+You can customize the service by changing the `config.yml`.
+
+```yaml
+# Define shoc
+shoc:
+  host: localhost
+  port: 8080
+  length:
+    links: 2
+    users: 16
+
+# Define redis
+redis:
+  host: localhost
+  port: 6379
+```
+
 ## License
 
 _Just do what you'd like to_
