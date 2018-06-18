@@ -37,7 +37,7 @@ set :bind, config['shoc']['host']
 set :port, config['shoc']['port']
 
 # Update cookie settings (1 year storage)
-set :cookie_options, :expires => Time.now + (60 * 60 * 24 * 365 * 1)
+set :cookie_options, :expires => Time.now + (60 * 60 * 24 * 365 * 1), :domain => config['shoc']['domain']
 
 # Handle middleware
 before do
@@ -67,7 +67,8 @@ get '/urls' do
   # Render urls view
   erb :urls, :locals => {
     :user_id => user_id,
-    :urls => urls
+    :urls => urls,
+    :domain => config['shoc']['domain']
   }
 end
 
@@ -99,7 +100,8 @@ get '/:url/view' do
     # Render page
     erb :url, :locals => {
       :url => url,
-      :url_id => params[:url]
+      :url_id => params[:url],
+      :domain => config['shoc']['domain']
     }
   else
     # Render not found request

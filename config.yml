@@ -1,5 +1,6 @@
 # Define shoc
 shoc:
+  domain: example.com
   host: localhost
   port: 8080
   length:

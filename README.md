@@ -37,7 +37,8 @@ You can customize the service by changing the `config.yml`.
 ```yaml
 # Define shoc
 shoc:
-  host: localhost
+  domain: example.com # domain for external calls
+  host: localhost # localhost (internal) or 0.0.0.0 (external)
   port: 8080
   length:
     links: 2
@@ -47,6 +48,7 @@ shoc:
 redis:
   host: localhost
   port: 6379
+
 ```
 
 ## License
