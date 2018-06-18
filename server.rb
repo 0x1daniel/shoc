@@ -47,7 +47,7 @@ before do
   # Check if user id exists
   if user_id.nil?
     # Generate and store new user id
-    cookies[:user_id] = SecureRandom.hex config['shoc']['links']['length']
+    cookies[:user_id] = SecureRandom.hex config['shoc']['length']['users']
   end
 end
 
@@ -121,7 +121,7 @@ post '/urls' do
     # until unique one found
     loop do
       # Generate new id
-      url_id = SecureRandom.hex config['shoc']['links']['length']
+      url_id = SecureRandom.hex config['shoc']['length']['links']
 
       # Check if id is used
       if !redis.exists "url:#{url_id}"
@@ -149,7 +149,7 @@ post '/recover' do
   user_id = params['user_id']
 
   # Check length
-  if user_id.length == config['shoc']['links']['length'] * 2
+  if user_id.length == config['shoc']['length']['links'] * 2
     # Update cookie
     cookies[:user_id] = user_id
 
