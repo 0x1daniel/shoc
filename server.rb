@@ -127,11 +127,26 @@ post '/urls' do
 
       # Check if id is used
       if !redis.exists "url:#{url_id}"
+        # Start multi request
+        redis.multi
+
         # Store url
         redis.set "url:#{url_id}", url
 
+        # Set ttl
+        redis.expire "url:#{url_id}", (60 * 60 * 24 * 365 * 1)
+
         # Push to user urls
-        redis.lpush "user:#{user_id}:urls", url_id
+        count = redis.lpush "user:#{user_id}:urls", url_id
+
+        # Execute redis multi
+        redis.exec
+
+        # Check if ttl required to set
+        if count == 1
+          # Set ttl
+          redis.expire "user:#{user_id}:urls", (60 * 60 * 24 * 365 * 1)
+        end
 
         # Redirect
         redirect "/#{url_id}/view", 302
